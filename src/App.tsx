@@ -1,7 +1,7 @@
 import React from "react";
 import logo from "./logo.svg";
 import "./App.css";
-import { Button, Typography } from "@material-ui/core";
+import { Button, Grid, Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import { green, red } from "@material-ui/core/colors";
 
@@ -13,14 +13,11 @@ const useStyles = makeStyles({
 function App() {
   const classes = useStyles();
   return (
-    <div className="App">
-      <h1>Hello World with tag</h1>
-      <Typography variant="h4" color="primary" className={classes.myStyle}>
-        Hello World with Typography
-      </Typography>
-      <Button color="secondary" variant="outlined" className={classes.myButton}>
-        This is our first button
-      </Button>
+    <div>
+      <Grid container direction="column">
+        <Grid item>Header</Grid>
+        <Grid item>Content</Grid>
+      </Grid>
     </div>
   );
 }
