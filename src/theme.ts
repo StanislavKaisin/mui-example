@@ -9,7 +9,7 @@ export const theme = createMuiTheme({
       main: purple[500],
     },
     secondary: {
-      main: blue[500],
+      main: green[500],
     },
   },
   typography: { fontFamily: "Helvetica" },
