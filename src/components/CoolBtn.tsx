@@ -1,4 +1,5 @@
 import { Button, createStyles, makeStyles, Theme } from "@material-ui/core";
+import classNames from "classnames";
 import React from "react";
 
 interface CoolBtnProps {
@@ -34,7 +35,10 @@ const useStyles = makeStyles((theme: Theme) =>
 export const CoolBtn = (props: CoolBtnProps) => {
   const classes = useStyles(props);
   return (
-    <Button className={classes.btnStyle} fullWidth>
+    <Button
+      className={classNames(classes.btnStyle, classes.btnBackgroundStyle)}
+      fullWidth
+    >
       CoolBtn button
     </Button>
   );
