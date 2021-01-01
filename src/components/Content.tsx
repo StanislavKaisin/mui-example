@@ -8,7 +8,7 @@ export const Content = () => {
     <Grid container spacing={2}>
       {cofeeList.map((cofee) => {
         return (
-          <Grid item xs={12} sm={4}>
+          <Grid item xs={12} sm={4} key={cofee.title}>
             <MyCard {...cofee} />
           </Grid>
         );
