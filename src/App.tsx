@@ -53,6 +53,15 @@ function App() {
 
   return (
     <>
+      <Paper elevation={6} style={{ borderRadius: "16px" }}>
+        <Typography variant="h6">
+          Typography inside paper Lorem ipsum dolor sit amet, consectetur
+          adipisicing elit. Tempora, accusamus hic laudantium sint qui quibusdam
+          illum eaque minima nemo commodi?
+        </Typography>
+      </Paper>
+      <hr />
+      <hr />
       <div className={classes.root}>
         <Button color="primary" variant="contained" className={classes.btn}>
           simple button
