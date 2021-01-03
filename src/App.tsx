@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./App.css";
 import {
   Button,
@@ -7,6 +7,7 @@ import {
   IconButton,
   makeStyles,
   Paper,
+  Switch,
   Theme,
   Typography,
 } from "@material-ui/core";
@@ -17,7 +18,12 @@ import { CoolBtn } from "./components/CoolBtn";
 import DeleteIcon from "@material-ui/icons/Delete";
 import AlarmIcon from "@material-ui/icons/Alarm";
 import AddShoppingCartIcon from "@material-ui/icons/AddShoppingCart";
-import { useTheme } from "@material-ui/core/styles";
+import {
+  createMuiTheme,
+  ThemeProvider,
+  useTheme,
+} from "@material-ui/core/styles";
+import { green } from "@material-ui/core/colors";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -50,9 +56,46 @@ function App() {
   const classes = useStyles();
   // console.log("classes", classes);
   const cool = true;
+  const [darkMode, setDarkMode] = useState(false);
+  const insideTheme = createMuiTheme({
+    palette: {
+      type: darkMode ? "dark" : "light",
+    },
+  });
+  const darkTheme = createMuiTheme({
+    palette: {
+      type: "dark",
+    },
+  });
+  const greenTheme = createMuiTheme({
+    palette: {
+      primary: green,
+      secondary: green,
+    },
+  });
+  const handleChange = () => {
+    setDarkMode(!darkMode);
+  };
 
   return (
     <>
+      <ThemeProvider theme={darkMode ? darkTheme : greenTheme}>
+        <Paper style={{ height: "100vh" }}>
+          <Grid container direction="column">
+            <Typography variant="h6">Theme changing example</Typography>
+            <Button variant="contained" color="primary">
+              Button
+            </Button>
+            <Button variant="contained" color="secondary">
+              Another Button
+            </Button>
+            <Switch checked={darkMode} onChange={handleChange}></Switch>
+          </Grid>
+        </Paper>
+      </ThemeProvider>
+
+      <hr />
+      <hr />
       <Paper elevation={6} style={{ borderRadius: "16px" }}>
         <Typography variant="h6">
           Typography inside paper Lorem ipsum dolor sit amet, consectetur
