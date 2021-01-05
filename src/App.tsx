@@ -3,6 +3,7 @@ import "./App.css";
 import {
   Button,
   createStyles,
+  Divider,
   Grid,
   IconButton,
   makeStyles,
@@ -79,6 +80,73 @@ function App() {
 
   return (
     <>
+      <Grid container spacing={1} direction="column">
+        <Grid item xs={12} container>
+          <Grid item xs={2}>
+            <Paper>welcome</Paper>
+          </Grid>
+          <Grid item xs={8}></Grid>
+          <Grid item xs={2}>
+            <Paper>
+              <Button>Logout</Button>
+            </Paper>
+          </Grid>
+        </Grid>
+        <Grid item xs={12}>
+          <Divider />
+          {/* Divider is like: ---------------------------- */}
+        </Grid>
+        <Grid container xs={12} spacing={2}>
+          <Grid container xs={6}>
+            <Typography>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit
+              accusantium inventore rerum quibusdam nemo sed vel tempora.
+              Tempora, suscipit cum!
+            </Typography>
+          </Grid>
+          <Grid container xs={6}>
+            <Typography>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit
+              accusantium inventore rerum quibusdam nemo sed vel tempora.
+              Tempora, suscipit cum!
+            </Typography>
+          </Grid>
+        </Grid>
+      </Grid>
+      <hr />
+      <Grid container spacing={1} direction="column">
+        <Grid item xs={12} sm={6} lg={4}>
+          <Paper>xs=12 sm=6 lg=4</Paper>
+        </Grid>
+        <Grid item xs={12} container spacing={1}>
+          <Grid item xs={3}>
+            <Paper>xs=3 inside item container</Paper>
+          </Grid>
+          <Grid item xs={3}>
+            <Paper>xs=3 inside item container</Paper>
+          </Grid>
+          <Grid item xs={3}>
+            <Paper>xs=3 inside item container</Paper>
+          </Grid>
+          <Grid item xs={3}>
+            <Paper>xs=3 inside item container</Paper>
+          </Grid>
+        </Grid>
+        <Grid item xs={6}>
+          <Paper>xs=6</Paper>
+        </Grid>
+        <Grid item xs={3}>
+          <Paper>xs=3</Paper>
+        </Grid>
+        <Grid item xs={3}>
+          <Paper>xs=3</Paper>
+        </Grid>
+        <Grid item xs={7}>
+          <Paper>xs=7</Paper>
+        </Grid>
+      </Grid>
+      <hr />
+      <hr />
       <ThemeProvider theme={darkMode ? darkTheme : greenTheme}>
         <Paper style={{ height: "100vh" }}>
           <Grid container direction="column">
@@ -93,7 +161,6 @@ function App() {
           </Grid>
         </Paper>
       </ThemeProvider>
-
       <hr />
       <hr />
       <Paper elevation={6} style={{ borderRadius: "16px" }}>

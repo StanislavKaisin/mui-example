@@ -13,7 +13,7 @@ export const theme = createMuiTheme({
     // },
     // primary: green,
     // secondary: purple,
-    type: "dark",
+    type: "light",
     // type: "light",
   },
   typography: {
