@@ -17,6 +17,7 @@ import { Content } from "./components/Content";
 import { CoolBtn } from "./components/CoolBtn";
 
 import DeleteIcon from "@material-ui/icons/Delete";
+import AcUnitIcon from "@material-ui/icons/AcUnit";
 import AlarmIcon from "@material-ui/icons/Alarm";
 import AddShoppingCartIcon from "@material-ui/icons/AddShoppingCart";
 import {
@@ -80,6 +81,28 @@ function App() {
 
   return (
     <>
+      <Grid
+        container
+        justify="center"
+        alignItems="center"
+        style={{ height: "100px" }}
+        direction="column"
+      >
+        {/* <Grid container justify="flex-end"> */}
+        {/* <Grid container justify="space-between"> */}
+        {/* <Grid container justify="space-around"> */}
+        {/* <Grid container justify="space-evenly"> */}
+        {/* <Grid item xs={3} style={{ textAlign: "center" }}> */}
+        {/* <Grid item xs={3}> */}
+        <Grid>
+          <AcUnitIcon color="primary" />
+        </Grid>
+        <Grid item>
+          <AcUnitIcon color="secondary" />
+        </Grid>
+      </Grid>
+      <hr />
+      <hr />
       <Grid container spacing={1} direction="column">
         <Grid item xs={12} container>
           <Grid item xs={2}>
@@ -96,7 +119,7 @@ function App() {
           <Divider />
           {/* Divider is like: ---------------------------- */}
         </Grid>
-        <Grid container xs={12} spacing={2}>
+        <Grid container xs={12} spacing={1} justify="space-around">
           <Grid container xs={6}>
             <Typography>
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit
