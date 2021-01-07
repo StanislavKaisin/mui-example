@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import "./App.css";
 import {
   Button,
+  Card,
+  CardActions,
+  CardContent,
   createStyles,
   Divider,
   Grid,
@@ -26,6 +29,7 @@ import {
   useTheme,
 } from "@material-ui/core/styles";
 import { green } from "@material-ui/core/colors";
+import { CardExample } from "./components/CardExample";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -48,6 +52,10 @@ const useStyles = makeStyles((theme: Theme) =>
     btn: {
       backgroundColor: "blue",
       [theme.breakpoints.up("sm")]: { backgroundColor: "black" },
+    },
+    container: {
+      paddingLeft: "20px",
+      paddingRight: "20px",
     },
   })
 );
@@ -81,6 +89,22 @@ function App() {
 
   return (
     <>
+      <Grid container spacing={2} className={classes.container}>
+        <Grid item xs={12} sm={6} md={4}>
+          <CardExample />
+        </Grid>
+        <Grid item xs={12} sm={6} md={4}>
+          <CardExample />
+        </Grid>
+        <Grid item xs={12} sm={6} md={4}>
+          <CardExample />
+        </Grid>
+        <Grid item xs={12} sm={6} md={4}>
+          <CardExample />
+        </Grid>
+      </Grid>
+      <hr />
+      <hr />
       <Grid
         container
         justify="center"
