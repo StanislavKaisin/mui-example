@@ -11,7 +11,6 @@ import {
   IconButton,
   makeStyles,
   Paper,
-  Switch,
   Theme,
   Typography,
 } from "@material-ui/core";
@@ -30,6 +29,8 @@ import {
 } from "@material-ui/core/styles";
 import { green } from "@material-ui/core/colors";
 import { CardExample } from "./components/CardExample";
+import { Redirect, Route, Switch, useRouteMatch } from "react-router-dom";
+import { Home } from "./pages/Home";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -59,6 +60,9 @@ const useStyles = makeStyles((theme: Theme) =>
     },
   })
 );
+interface MatchParams {
+  page?: string;
+}
 
 function App() {
   const theme = useTheme();
@@ -87,8 +91,19 @@ function App() {
     setDarkMode(!darkMode);
   };
 
+  // const router = useRouteMatch();
+  // const { params } = router;
+  // const { page }: MatchParams = params;
+
   return (
     <>
+      <Switch>
+        <Redirect exact from="/home" to="/home/about" />
+        <Route exact path="/home/:page?">
+          <Home />
+        </Route>
+      </Switch>
+      <Divider />
       <Grid container spacing={2} className={classes.container}>
         <Grid item xs={12} sm={6} md={4}>
           <CardExample />
@@ -204,7 +219,7 @@ function App() {
             <Button variant="contained" color="secondary">
               Another Button
             </Button>
-            <Switch checked={darkMode} onChange={handleChange}></Switch>
+            {/* <Switch checked={darkMode} onChange={handleChange}></Switch> */}
           </Grid>
         </Paper>
       </ThemeProvider>
