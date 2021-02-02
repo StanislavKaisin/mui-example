@@ -31,6 +31,7 @@ import { green } from "@material-ui/core/colors";
 import { CardExample } from "./components/CardExample";
 import { Redirect, Route, Switch, useRouteMatch } from "react-router-dom";
 import { Home } from "./pages/Home";
+import { PaginationTable } from "./components/PaginationTable";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -97,6 +98,8 @@ function App() {
 
   return (
     <>
+      <PaginationTable />
+      <Divider />
       <Switch>
         <Redirect exact from="/home" to="/home/about" />
         <Route exact path="/home/:page?">

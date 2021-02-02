@@ -29,15 +29,7 @@ export const Home = () => {
     contact: 1,
   };
 
-  // function isUndefined(index: any): index is boolean {
-  //   return typeof index === "undefined";
-  // }
-
-  // function getData(page?: string) {
-  //   return isUndefined(page) ? 0 : indexToTabName[page];
-  // }
-
-  function getData(index?: string): number {
+   function getData(index?: string): number {
     if (index === undefined) return 0;
     return indexToTabName[index];
   }
