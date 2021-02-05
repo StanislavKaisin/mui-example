@@ -1,22 +1,29 @@
 import {
   Checkbox,
+  FormControlLabel,
+  IconButton,
   makeStyles,
   Paper,
+  Switch,
   Table,
   TableBody,
   TableCell,
   TableContainer,
   TableHead,
+  TablePagination,
   TableRow,
   TableSortLabel,
   Theme,
   Toolbar,
+  Tooltip,
   Typography,
 } from "@material-ui/core";
 import { lighten } from "@material-ui/core/styles/colorManipulator";
 import createStyles from "@material-ui/core/styles/createStyles";
 import clsx from "clsx";
 import React from "react";
+import DeleteIcon from "@material-ui/icons/Delete";
+import FilterListIcon from "@material-ui/icons/FilterList";
 
 interface Data {
   calories: number;
@@ -118,8 +125,8 @@ interface EnhancedTableProps {
   orderBy: string;
   rowCount: number;
 }
-
-export const PaginationTable = (props: EnhancedTableProps) => {
+// props: EnhancedTableProps
+export const EnhancedTableHead = (props: EnhancedTableProps) => {
   const {
     classes,
     onSelectAllClick,
@@ -273,7 +280,7 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-export default function EnhancedTable() {
+export function PaginationTable() {
   const classes = useStyles();
   const [order, setOrder] = React.useState<Order>("asc");
   const [orderBy, setOrderBy] = React.useState<keyof Data>("calories");

@@ -98,7 +98,7 @@ function App() {
 
   return (
     <>
-      <PaginationTable />
+      {/* <PaginationTable /> */}
       <Divider />
       <Switch>
         <Redirect exact from="/home" to="/home/about" />
