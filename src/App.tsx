@@ -29,9 +29,24 @@ import {
 } from "@material-ui/core/styles";
 import { green } from "@material-ui/core/colors";
 import { CardExample } from "./components/CardExample";
-import { Redirect, Route, Switch, useRouteMatch } from "react-router-dom";
+import {
+  Redirect,
+  Route,
+  Switch,
+  useHistory,
+  useRouteMatch,
+} from "react-router-dom";
 import { Home } from "./pages/Home";
 import { PaginationTable } from "./components/PaginationTable";
+import { Contact } from "./pages/Contact";
+import { About } from "./pages/About";
+import { MyDrawer } from "./components/MyDrawer";
+import Link from "@material-ui/core/Link";
+import { Jobs } from "./pages/Jobs";
+import { Engineer } from "./pages/Engineer";
+import { Marketer } from "./pages/Marketer";
+import { Designer } from "./pages/Designer";
+import { MyBreadcrumbs } from "./components/MyBreadcrumbs";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -91,13 +106,92 @@ function App() {
   const handleChange = () => {
     setDarkMode(!darkMode);
   };
-
+  const preventDefault = (event: React.SyntheticEvent) =>
+    event.preventDefault();
+  const history = useHistory();
   // const router = useRouteMatch();
   // const { params } = router;
   // const { page }: MatchParams = params;
 
   return (
     <>
+      <MyBreadcrumbs />
+      <Link
+        href="/"
+        onClick={(event: React.SyntheticEvent) => {
+          preventDefault(event);
+          history.push("/");
+        }}
+      >
+        Home
+      </Link>
+      <Link
+        href="/contact"
+        onClick={(event: React.SyntheticEvent) => {
+          preventDefault(event);
+          history.push("/contact");
+        }}
+      >
+        /contact
+      </Link>
+      <Link
+        href="/about"
+        onClick={(event: React.SyntheticEvent) => {
+          preventDefault(event);
+          history.push("/about");
+        }}
+      >
+        /about
+      </Link>
+      <Link
+        href="/jobs"
+        onClick={(event: React.SyntheticEvent) => {
+          preventDefault(event);
+          history.push("/jobs");
+        }}
+      >
+        /jobs
+      </Link>
+
+      <Switch>
+        <Route exact path="/">
+          <Home />
+        </Route>
+        <Route exact path="/contact">
+          <Contact />
+        </Route>
+        <Route exact path="/about">
+          <About />
+        </Route>
+        <Route exact path="/jobs">
+          <Jobs />
+        </Route>
+        <Route exact path="/jobs/engineer">
+          <Engineer />
+        </Route>
+        <Route exact path="/jobs/marketer">
+          <Marketer />
+        </Route>
+        <Route exact path="/jobs/designer">
+          <Designer />
+        </Route>
+      </Switch>
+
+      <Divider />
+      <MyDrawer />
+      <Switch>
+        <Route exact path="/">
+          <Home />
+        </Route>
+        <Route exact path="/contact">
+          <Contact />
+        </Route>
+        <Route exact path="/about">
+          <About />
+        </Route>
+      </Switch>
+      <Divider />
+      <Typography>place for paginationTable</Typography>
       {/* <PaginationTable /> */}
       <Divider />
       <Switch>

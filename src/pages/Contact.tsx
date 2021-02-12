@@ -3,7 +3,7 @@ import React from "react";
 export const Contact = () => {
   return (
     <div>
-      <p>Contact page</p>
+      <p style={{ textAlign: "right" }}>Contact page</p>
     </div>
   );
 };

@@ -29,14 +29,14 @@ export const Home = () => {
     contact: 1,
   };
 
-   function getData(index?: string): number {
+  function getData(index?: string): number {
     if (index === undefined) return 0;
     return indexToTabName[index];
   }
 
   const initialState = getData(page);
 
-  console.log("initialState=", initialState);
+  // console.log("initialState=", initialState);
 
   const [selectedTab, setselectedTab] = useState(initialState);
   const handleChange = (
@@ -49,14 +49,16 @@ export const Home = () => {
   };
   return (
     <>
-      <AppBar position="static">
+      {/* <AppBar position="static">
         <Tabs value={selectedTab} onChange={handleChange}>
           <Tab label="About" />
           <Tab label="Contact us" />
         </Tabs>
       </AppBar>
       {selectedTab === 0 && <About />}
-      {selectedTab === 1 && <Contact />}
+      {selectedTab === 1 && <Contact />} */}
+
+      <p style={{ textAlign: "right" }}>Home page</p>
     </>
   );
 };
