@@ -56,7 +56,7 @@ export const MyBreadcrumbs = () => {
           );
         })}
 
-        <Typography color="textPrimary">Breadcrumb</Typography>
+        <Typography color="textPrimary">{`<<--Breadcrumb here`}</Typography>
       </Breadcrumbs>
     </div>
   );

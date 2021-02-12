@@ -8,11 +8,13 @@ import {
   createStyles,
   Divider,
   Grid,
+  Hidden,
   IconButton,
   makeStyles,
   Paper,
   Theme,
   Typography,
+  useMediaQuery,
 } from "@material-ui/core";
 import { Header } from "./components/Header";
 import { Content } from "./components/Content";
@@ -47,6 +49,7 @@ import { Engineer } from "./pages/Engineer";
 import { Marketer } from "./pages/Marketer";
 import { Designer } from "./pages/Designer";
 import { MyBreadcrumbs } from "./components/MyBreadcrumbs";
+import { Breakpoint } from "@material-ui/core/styles/createBreakpoints";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -78,6 +81,19 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 interface MatchParams {
   page?: string;
+}
+
+type BreakpointOrNull = Breakpoint | null;
+function useWidth() {
+  const theme: Theme = useTheme();
+  const keys: Breakpoint[] = [...theme.breakpoints.keys].reverse();
+  return (
+    keys.reduce((output: BreakpointOrNull, key: Breakpoint) => {
+      // eslint-disable-next-line react-hooks/rules-of-hooks
+      const matches = useMediaQuery(theme.breakpoints.up(key));
+      return !output && matches ? key : output;
+    }, null) || "xs"
+  );
 }
 
 function App() {
@@ -112,9 +128,23 @@ function App() {
   // const router = useRouteMatch();
   // const { params } = router;
   // const { page }: MatchParams = params;
-
+  const width = useWidth();
   return (
     <>
+      <Typography variant="subtitle1">Current width: {width}</Typography>
+      <Hidden xsDown>
+        <Paper>xsDown</Paper>
+      </Hidden>
+      <Hidden xsUp>
+        <Paper>Hidden!!! xsUp</Paper>
+      </Hidden>
+      <Hidden smUp>
+        <Paper>smUp</Paper>
+      </Hidden>
+      <Hidden mdUp>
+        <Paper>mdUp</Paper>
+      </Hidden>
+      <Divider />
       <MyBreadcrumbs />
       <Link
         href="/"
@@ -152,7 +182,6 @@ function App() {
       >
         /jobs
       </Link>
-
       <Switch>
         <Route exact path="/">
           <Home />
@@ -176,7 +205,6 @@ function App() {
           <Designer />
         </Route>
       </Switch>
-
       <Divider />
       <MyDrawer />
       <Switch>
