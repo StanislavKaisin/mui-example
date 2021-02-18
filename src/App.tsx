@@ -50,6 +50,7 @@ import { Marketer } from "./pages/Marketer";
 import { Designer } from "./pages/Designer";
 import { MyBreadcrumbs } from "./components/MyBreadcrumbs";
 import { Breakpoint } from "@material-ui/core/styles/createBreakpoints";
+import { MySnackbar } from "./components/MySnackbar";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -131,6 +132,7 @@ function App() {
   const width = useWidth();
   return (
     <>
+      <MySnackbar />
       <Typography variant="subtitle1">Current width: {width}</Typography>
       <Hidden xsDown>
         <Paper>xsDown</Paper>
