@@ -1,11 +1,60 @@
 import { Formik, Form, Field } from "formik";
 import React from "react";
-import { MuiPickersUtilsProvider } from "@material-ui/pickers";
+import {
+  DatePicker,
+  DateTimePicker,
+  MuiPickersUtilsProvider,
+  TimePicker,
+} from "@material-ui/pickers";
 import DateFnsUtils from "@date-io/date-fns";
+import {
+  Box,
+  Button,
+  FormControl,
+  FormControlLabel,
+  InputLabel,
+  LinearProgress,
+  MenuItem,
+  Select,
+  Switch,
+  TextField,
+  Typography,
+} from "@material-ui/core";
+import {
+  Autocomplete,
+  AutocompleteRenderInputParams,
+  ToggleButton,
+  ToggleButtonGroup,
+} from "@material-ui/lab";
+import FormatAlignLeftIcon from "@material-ui/icons/FormatAlignLeft";
+import FormatAlignCenterIcon from "@material-ui/icons/FormatAlignCenter";
+import FormatAlignRightIcon from "@material-ui/icons/FormatAlignRight";
+import FormatAlignJustifyIcon from "@material-ui/icons/FormatAlignJustify";
+import { top100Films } from "../constants/top100Films";
+import MuiTextField from "@material-ui/core/TextField";
 
 interface Values {
   email: string;
 }
+
+const ranges = [
+  {
+    value: "none",
+    label: "None",
+  },
+  {
+    value: "0-20",
+    label: "0 to 20",
+  },
+  {
+    value: "21-50",
+    label: "21 to 50",
+  },
+  {
+    value: "51-100",
+    label: "51 to 100",
+  },
+];
 
 export const FormikForm = () => {
   return (
