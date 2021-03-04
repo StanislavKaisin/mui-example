@@ -53,6 +53,8 @@ import { Breakpoint } from "@material-ui/core/styles/createBreakpoints";
 import { MySnackbar } from "./components/MySnackbar";
 import { MyAccordion } from "./components/MyAccordion";
 import { SimpleAppBar } from "./components/SimpleAppBar";
+import { FormikForm } from "./components/FormikForm";
+import { SimpleStepper } from "./components/SimpleStepper";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -135,6 +137,7 @@ function App() {
   return (
     <>
       <SimpleAppBar />
+      <SimpleStepper />
       <Switch>
         <Route exact path="/">
           <Home />
@@ -159,6 +162,7 @@ function App() {
         </Route>
       </Switch>
       <MyBreadcrumbs />
+      {/* <FormikForm /> */}
       <Link
         href="/"
         onClick={(event: React.SyntheticEvent) => {

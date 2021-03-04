@@ -15,9 +15,9 @@ import {
   InputLabel,
   LinearProgress,
   MenuItem,
-  Select,
-  Switch,
-  TextField,
+  // Select,
+  // Switch,
+  // TextField,
   Typography,
 } from "@material-ui/core";
 import {
@@ -32,6 +32,14 @@ import FormatAlignRightIcon from "@material-ui/icons/FormatAlignRight";
 import FormatAlignJustifyIcon from "@material-ui/icons/FormatAlignJustify";
 import { top100Films } from "../constants/top100Films";
 import MuiTextField from "@material-ui/core/TextField";
+
+import {
+  fieldToTextField,
+  TextField,
+  TextFieldProps,
+  Select,
+  Switch,
+} from "formik-material-ui";
 
 interface Values {
   email: string;
@@ -91,7 +99,10 @@ export const FormikForm = () => {
       }}
     >
       {({ submitForm, isSubmitting, touched, errors }) => (
-        <MuiPickersUtilsProvider utils={DateFnsUtils}>
+        <MuiPickersUtilsProvider
+          utils={DateFnsUtils}
+          // utils=null
+        >
           <Form>
             <Box margin={1}>
               <Field
